@@ -17,11 +17,24 @@ class Calculator extends React.Component {
       inputLimit: 20,
       numOfConsecutiveOperators: 0
     };
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  // attach event listener
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+
+  // method executed following pressing keyboard buttons
+  handleKeyPress(event) {
+    event.preventDefault();
+    this.handleClick(event.key);
   }
 
   // method executed following click events on Button components
   handleClick = (buttonName) => {
+    console.log(buttonName);
     // prevent button actions when digit limit exceeded
     if(!this.state.active) {
       return;
@@ -45,7 +58,7 @@ class Calculator extends React.Component {
     };
 
     // calculator logic
-    if(buttonName == "AC") {
+    if(buttonName == "AC" || buttonName == "Escape") {
       input = "0";
       output = "";
       decimalFlag = false;
@@ -109,6 +122,7 @@ class Calculator extends React.Component {
             }
             break;
           // handle equals
+          case "Enter":
           case "=":
             if(isNaN(input.slice(-1))) { // append zero when input does not end with a number (but operator or "." instead)
               input += '0';
@@ -170,7 +184,7 @@ class Calculator extends React.Component {
 
 // Screen component
 class Screen extends React.Component {
-  render(){
+  render() {
     return(
       <div id={this.props.id}>{this.props.display}</div>
     );
@@ -180,7 +194,7 @@ class Screen extends React.Component {
 // Button component
 class Button extends React.Component {
   runParentHandleClick = () => {
-    this.props.handleClick(this.props.name)
+    this.props.handleClick(this.props.name);
   }
   render() {
     return(
