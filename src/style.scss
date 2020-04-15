@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+$redColor: rgb(214, 101, 98);
+$greenColor: rgb(140, 170, 78);
+$yellowColor: rgb(211, 167, 67);
+$pageBgColor: #c2c2d6;
+$violetColor: rgb(71, 71, 107);
+$darkColor: rgb(50, 50, 50);
+
+$mainFont: 'Montserrat', sans-serif;
+$authorFont: 'Share Tech Mono', sans;
+
+body {
+    background-color: $pageBgColor;
+    font-family: $mainFont;
+}
+
+.calculator {
+    border: 3px solid $violetColor;
+    padding: 15px;
+    background-color: $darkColor;
+    margin: 80px auto 20px auto;
+    height: 450px;
+    width: 300px;
+    display: grid;
+    grid: {
+        gap: 6px;
+        template: {
+            columns: auto auto auto auto;
+            rows: auto auto auto auto auto auto;
+        }
+    }    
+}
+
+#displays {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    background-color: $yellowColor;
+    border: 3px solid white;
+    text-align: right;
+    margin-bottom: 15px;
+    padding: 15px 15px 0px 20px;
+
+    #display1 {
+        font-size: 14px;
+        height: 25px;
+    }
+    
+    #display2 {
+        font-size: 20px;
+        padding-top: 10px;
+    }
+}
+
+button {
+    background-color: $violetColor;
+    color: white;
+    font: {
+        family: $mainFont;
+        size: 13px;
+    }
+
+    &:hover {
+        border: 1px solid gray;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &#zero {
+        grid-column: 1 / 3;
+        grid-row: 6 / 7;
+    }
+      
+    &#one {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+    }
+      
+    &#two {
+        grid-column: 2 / 3;
+        grid-row: 5 / 6;
+    }
+      
+    &#three {
+        grid-column: 3 / 4;
+        grid-row: 5 / 6;
+    }
+      
+    &#four {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+      
+    &#five {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+      
+    &#six {
+        grid-column: 3 / 4;
+        grid-row: 4 / 5;
+    }
+      
+    &#seven {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+      
+    &#eight {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+      
+    &#nine {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+      
+    &#clear {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        background-color: $redColor;
+    }
+      
+    &#equals {
+        grid-column: 4 / 5;
+        grid-row: 5 / 7;
+        background-color: $greenColor;
+    }
+      
+    &#decimal {
+        grid-column: 3 / 4;
+        grid-row: 6 / 7;
+    }
+      
+    &#add {
+        grid-column: 4 / 5;
+        grid-row: 4 / 5;
+    }
+      
+    &#subtract {
+        grid-column: 4 / 5;
+        grid-row: 3 / 4;
+    }
+      
+   &#multiply {
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+      
+    &#divide {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+}
+
+#author {
+    text-align: center;
+    font: {
+        family: $authorFont;
+        size: 16px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            color: $redColor;
+        }
+    }
+}
