@@ -90,7 +90,7 @@ class Calculator extends React.Component {
           // handle operator inputs
           case "+":
           case "-":
-          case "*":
+          case "x":
           case "/":
             if(input.slice(-1) == "."){ // appends "0" when the input ends with ".", like . -> .0
               input += "0";
@@ -128,6 +128,7 @@ class Calculator extends React.Component {
               input += '0';
             }
             output = input + '=';
+            input = input.replace(/x/g, '*'); // replace 'x' for '*' as eval function does not recognise 'x's and throws an error
             input = String(Math.round(1000000000000 * eval(input)) / 1000000000000);
             decimalFlag = true;
             clearInputFlag = true;
@@ -157,9 +158,11 @@ class Calculator extends React.Component {
   // render child components
   render() {
     return (
-      <div id="grid-container">
-        <Screen id="display1" display={this.state.output}/>
-        <Screen id="display2" display={this.state.input}/>
+      <div id="grid-container" className="calculator">
+        <div id="displays">
+          <Screen id="display1" display={this.state.output}/>
+          <Screen id="display2" display={this.state.input}/>
+        </div>
         <Button id="zero" name="0" handleClick={this.handleClick}/>
         <Button id="one" name="1" handleClick={this.handleClick}/>
         <Button id="two" name="2" handleClick={this.handleClick}/>
@@ -175,7 +178,7 @@ class Calculator extends React.Component {
         <Button id="decimal" name="." handleClick={this.handleClick}/>
         <Button id="add" name="+" handleClick={this.handleClick}/>
         <Button id="subtract" name="-" handleClick={this.handleClick}/>
-        <Button id="multiply" name="*" handleClick={this.handleClick}/>
+        <Button id="multiply" name="x" handleClick={this.handleClick}/>
         <Button id="divide" name="/" handleClick={this.handleClick}/>
       </div>
     );
