@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&family=Share+Tech+Mono&display=swap');
 
-$redColor: rgb(214, 101, 98);
-$greenColor: rgb(140, 170, 78);
-$yellowColor: rgb(211, 167, 67);
-$pageBgColor: #c2c2d6;
-$violetColor: rgb(71, 71, 107);
-$darkColor: rgb(50, 50, 50);
+$color1: rgb(214, 101, 98);
+$color2: rgb(140, 170, 78);
+$color3: rgb(211, 167, 67);
+$color4: rgb(71, 71, 107);
+$color5: #c2c2d6;
+$color6: rgb(50, 50, 50);
+$color7: white;
 
-$mainFont: 'Montserrat', sans-serif;
-$authorFont: 'Share Tech Mono', sans;
+$primaryFont: 'Montserrat', sans-serif;
+$secondaryFont: 'Share Tech Mono', sans;
 
 body {
-    background-color: $pageBgColor;
-    font-family: $mainFont;
+    background-color: $color5;
+    font-family: $primaryFont;
 }
 
 .calculator {
-    border: 3px solid $violetColor;
+    border: 3px solid $color4;
     padding: 15px;
-    background-color: $darkColor;
+    background-color: $color6;
     margin: 80px auto 20px auto;
     height: 450px;
     width: 300px;
@@ -36,8 +36,8 @@ body {
 #displays {
     grid-column: 1 / 5;
     grid-row: 1 / 2;
-    background-color: $yellowColor;
-    border: 3px solid white;
+    background-color: $color3;
+    border: 3px solid $color7;
     text-align: right;
     margin-bottom: 15px;
     padding: 15px 15px 0px 20px;
@@ -54,10 +54,10 @@ body {
 }
 
 button {
-    background-color: $violetColor;
-    color: white;
+    background-color: $color4;
+    color: $color7;
     font: {
-        family: $mainFont;
+        family: $primaryFont;
         size: 13px;
     }
 
@@ -122,13 +122,13 @@ button {
     &#clear {
         grid-column: 1 / 3;
         grid-row: 2 / 3;
-        background-color: $redColor;
+        background-color: $color1;
     }
       
     &#equals {
         grid-column: 4 / 5;
         grid-row: 5 / 7;
-        background-color: $greenColor;
+        background-color: $color2;
     }
       
     &#decimal {
@@ -160,7 +160,7 @@ button {
 #author {
     text-align: center;
     font: {
-        family: $authorFont;
+        family: $secondaryFont;
         size: 16px;
     }
 
@@ -169,7 +169,7 @@ button {
         color: black;
 
         &:hover {
-            color: $redColor;
+            color: $color1;
         }
     }
 }

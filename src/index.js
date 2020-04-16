@@ -57,7 +57,7 @@ class Calculator extends React.Component {
     };
 
     // calculator logic
-    if(buttonName == "AC" || buttonName == "Escape") {
+    if(buttonName === "AC" || buttonName === "Escape") {
       input = "0";
       output = "";
       decimalFlag = false;
@@ -91,16 +91,16 @@ class Calculator extends React.Component {
           case "-":
           case "x":
           case "/":
-            if(input.slice(-1) == "."){ // appends "0" when the input ends with ".", like . -> .0
+            if(input.slice(-1) === "."){ // appends "0" when the input ends with ".", like . -> .0
               input += "0";
               numOfConsecutiveOperators = 0;
             }
-            if(numOfConsecutiveOperators == 0) { // if no operator beforehand -> appends this operator
+            if(numOfConsecutiveOperators === 0) { // if no operator beforehand -> appends this operator
               output = "";
               input += buttonName;
               decimalFlag = false;
               numOfConsecutiveOperators++;
-            } else if(buttonName == "-" && numOfConsecutiveOperators < 2) { // allow for "-" as a second operator (negative values)
+            } else if(buttonName === "-" && numOfConsecutiveOperators < 2) { // allow for "-" as a second operator (negative values)
               input = input + " " + buttonName;
               numOfConsecutiveOperators++;
             } else if(numOfConsecutiveOperators < 2) { // if the second operator is not "-" then replace the operator
@@ -133,6 +133,8 @@ class Calculator extends React.Component {
             clearInputFlag = true;
             decimalFlag = false;
             numOfConsecutiveOperators = 0;
+            break;
+          default:
             break;
         }
     } else { // input capacity has been exceeded
