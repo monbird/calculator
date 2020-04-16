@@ -34,7 +34,6 @@ class Calculator extends React.Component {
 
   // method executed following click events on Button components
   handleClick = (buttonName) => {
-    console.log(buttonName);
     // prevent button actions when digit limit exceeded
     if(!this.state.active) {
       return;
